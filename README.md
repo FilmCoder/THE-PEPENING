@@ -51,3 +51,29 @@ Help Contribute!
 2. Clone this repository.
 3. Open up "THE PEPENING/THE PEPENING" in Unity. 
 4. Press play. Make changes. Then use Git as normal to contribute.
+
+Roadmap
+-------
+The game is in a VERY early state. Currently, we have a camera controlled by mouse, a basic pepe object
+and a spawn manager to manage the spawning rates and areas of Pepes. We don't have much else. 
+
+A high level roadmap looks like this:
+1. Continue to develop in non-vr to add a little more depth to the game. Finish the first 3 waves.
+2. Port to VR.
+3. Add more waves, 10 waves is our goal. (keep in mind, we want new types of enemies or behavior at least every 2 waves.
+   Just adding more enemies with more health isn't interesting enough. We want nice pepes, angry pepes, eagle pepes, etc...)
+   
+Detailed roadmap:
+1. __Make Pepes shootable.__ (raycast shooting system, give health to pepes, have them dye).
+2. __Create tendy gun.__
+3. __Add particle effects.__ This game needs to be gory. Pepes explode blood and guts when shot.
+4. __Create WaveManager.__ We need a better way to manage the timing of waves. We should be able to quickly
+   insert new waves in front of existing waves, and link the WaveManager to the SpawnManager somehow.
+5. __Design first 3 waves__. Lots of experimentation, make a new enemy type, play with visual effects
+   and particle effects, play with Pepe speeds/animations. This is a really big step that will take a while.
+6. __Design sounds.__ Start recording folley. Work with directional audio and audio effects processing.
+6. __Port to VR__. Big boi.
+7. __Design 7 more waves___.
+8. FIN.
+
+    
