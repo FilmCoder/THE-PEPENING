@@ -28,14 +28,15 @@ Adam stumbled backward and stuttered "wha - wha - whaaaat?"
 
 Slowly, one after another, all of the Pepe's began adding their own Rees in,
 until a earsplitting REEEEEEEEEEEEEEEEEEEEEEEEEEE drowned out the world.
-That rage, hatred, the murdurous intent was so physical and real, and Adam
+The rage, hatred, the murdurous intent - it was so physical and real, and Adam
 could feel his own head being crushed under the hatred of a thousand PEPES.
 
 THEN, IN UNISOM, THEY ALL STARTED RUNNING TOWARDS HIM!!!!!!!
 
 This is the story of ADAM WELLINGTON, a poor little normie trapped in a 
 Pepe dungeon, clinging onto his dear life just so he can make it to the
-next day to watch a little ESPN.
+next day to watch a little ESPN and maybe wind down afterwards with some 
+Big Bang Theory.
 
 
 Play the Game!
