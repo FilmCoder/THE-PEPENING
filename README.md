@@ -73,7 +73,7 @@ Detailed roadmap:
    and particle effects, play with Pepe speeds/animations. This is a really big step that will take a while.
 6. __Design sounds.__ Start recording folley. Work with directional audio and audio effects processing.
 6. __Port to VR__. Big boi.
-7. __Design 7 more waves___.
+7. __Design 7 more waves__.
 8. FIN.
 
     
