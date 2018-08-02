@@ -1,6 +1,8 @@
 T H E  P E P E N I N G
 ======================
 
+THE STORY
+---------
 A radical new visual look at the way the average Joe experiences an influx
 of anime swags and 4chan bros into his life. For instance, perhaps Adam
 Wellington the jock from the football team mistakenly stumbled into a
@@ -36,3 +38,15 @@ Pepe dungeon, clinging onto his dear life just so he can make it to the
 next day to watch a little ESPN.
 
 
+Play the Game!
+--------------
+Release builds for Windows, Mac, and WebGL will be released shortly
+and available for download. For now, check the "Help Contribute" section
+if you want to play the game.
+
+Help Contribute!
+----------------
+1. Install Unity, it's free! https://unity3d.com/get-unity/download
+2. Clone this repository.
+3. Open up "THE PEPENING/THE PEPENING" in Unity. 
+4. Press play. Make changes. Then use Git as normal to contribute.
