@@ -42,7 +42,8 @@ Big Bang Theory.
 Play the Game!
 --------------
 WEBGL Build: https://filmcoder.github.io/THE_PEPENING/Build_2/index.html
-IMPORTANT! Click in the game window to attach the cursor. Escape to exit.
+
+Click in the game window to attach the cursor. Escape to exit.
 
 Release builds for Windows and Mac will be released later.
 
