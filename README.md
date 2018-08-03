@@ -41,9 +41,13 @@ Big Bang Theory.
 
 Play the Game!
 --------------
-Release builds for Windows, Mac, and WebGL will be released shortly
-and available for download. For now, check the "Help Contribute" section
-if you want to play the game.
+WEBGL Build: https://filmcoder.github.io/THE_PEPENING/Build_2/index.html
+IMPORTANT! Click in the game window to attach the cursor. Escape to exit.
+
+Release builds for Windows and Mac will be released later.
+
+Note: The release here probably isn't up to date, to get the latest and greatest
+follow the contribute instructions below.
 
 Help Contribute!
 ----------------
