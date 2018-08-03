@@ -317,7 +317,7 @@ MonoBehaviour:
     type: 2}
   startMinute: 0
   stopMinute: 1
-  secondsBetweenSpawns: 0.1
+  secondsBetweenSpawns: 1
   enemySpeed: 0
   enemyHealth: 0
 --- !u!4 &407317658
