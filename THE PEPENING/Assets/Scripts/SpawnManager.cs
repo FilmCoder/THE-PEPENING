@@ -5,7 +5,7 @@ using UnityEngine;
 /*
  * The Spawner class is used to manage the spawning of enemies.
  */
-public class SpawnTester : MonoBehaviour {
+public class SpawnManager : MonoBehaviour {
 
     /******    PUBLIC     ****/
 
@@ -31,10 +31,6 @@ public class SpawnTester : MonoBehaviour {
 
     /******  PRIVATE  *********/
 
-
-    //private Mesh mesh;
-    //private Renderer rend;
-
     // Holds info on bounding boxs of spawnAreaPlanes, in World Coordinates.
     private Bounds[] spawnBoundsList;
 
@@ -46,11 +42,6 @@ public class SpawnTester : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        //mesh = GetComponent<MeshFilter>().mesh;
-        //rend = GetComponent<Renderer>();
-        //Debug.Log(mesh);
-        //Debug.Log("DONE!");
-
         init();
 	}
 

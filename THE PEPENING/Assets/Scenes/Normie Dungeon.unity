@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.04
+  m_FogDensity: 0.06
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -333,15 +333,10 @@ MonoBehaviour:
   enemyObject: {fileID: 1842990580303206, guid: 255f7d66bd59d4edeac0400e18fc6ac4,
     type: 2}
   startMinute: 0
-  stopMinute: 1
+  stopMinute: 5
   secondsBetweenSpawns: 1
-  enemySpeed: 0
-  enemyHealth: 0
-  pepeCount: 0
-  spawnBoundsList: []
-  startSecond: 0
-  stopSecond: 0
-  prevSpawnTime: 0
+  enemySpeed: 5
+  enemyHealth: 5
 --- !u!4 &407317658
 Transform:
   m_ObjectHideFlags: 0
@@ -831,23 +826,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1810842963 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1433138285114004, guid: 255f7d66bd59d4edeac0400e18fc6ac4,
-    type: 2}
-  m_PrefabInternal: {fileID: 1845394469}
---- !u!114 &1810842966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1810842963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a017febf5ad364af3ac597cc0402f84b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
 --- !u!1001 &1845394469
 Prefab:
   m_ObjectHideFlags: 0
