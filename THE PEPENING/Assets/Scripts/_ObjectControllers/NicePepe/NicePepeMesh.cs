@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NicePepeMeshController : MonoBehaviour, Damageable {
+public class NicePepeMesh : MonoBehaviour, Damageable {
     public float health = 1f;
 
     public void TakeDamage(float amount)

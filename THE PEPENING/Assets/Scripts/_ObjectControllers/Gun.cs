@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunController : MonoBehaviour {
+public class Gun : MonoBehaviour {
 
     public float damage = 10f;
     public float range = 200f;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class NicePepeController : MonoBehaviour {
+public class NicePepe : MonoBehaviour {
 
     public float speed = 5f;
     GameObject player;
