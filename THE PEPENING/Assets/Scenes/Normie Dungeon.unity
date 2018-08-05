@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.06
+  m_FogDensity: 0.04
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -337,6 +337,11 @@ MonoBehaviour:
   secondsBetweenSpawns: 1
   enemySpeed: 0
   enemyHealth: 0
+  pepeCount: 0
+  spawnBoundsList: []
+  startSecond: 0
+  stopSecond: 0
+  prevSpawnTime: 0
 --- !u!4 &407317658
 Transform:
   m_ObjectHideFlags: 0
