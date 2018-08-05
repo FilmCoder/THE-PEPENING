@@ -114,6 +114,65 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &39049090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 39049091}
+  - component: {fileID: 39049092}
+  - component: {fileID: 39049093}
+  m_Layer: 0
+  m_Name: Empty Gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &39049091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 39049090}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1942004547}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &39049092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 39049090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac94daa6d21ff47b197b240baacf820f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Notes: 'Stores shooting logic, damage, raycasts, etc...
+
+
+    TODO: In the future, upgrade to proper tendy gun.'
+--- !u!114 &39049093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 39049090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da82b71a0201b43fab555c87e16aa78f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  range: 200
+  fpsCam: {fileID: 1942004546}
 --- !u!1 &98908849
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,8 +295,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 385288334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -8.63}
-  m_LocalScale: {x: 5, y: 5, z: 3.2976499}
+  m_LocalPosition: {x: 0, y: 0, z: 24.1}
+  m_LocalScale: {x: 15.086499, y: 15.086499, z: 9.949999}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -447,7 +506,6 @@ GameObject:
   - component: {fileID: 764916140}
   - component: {fileID: 764916139}
   - component: {fileID: 764916138}
-  - component: {fileID: 764916142}
   m_Layer: 0
   m_Name: Spawner Plane
   m_TagString: Untagged
@@ -518,30 +576,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 764916137}
   m_LocalRotation: {x: -0.7130744, y: -0, z: -0, w: 0.7010884}
-  m_LocalPosition: {x: -2.77, y: 22.3, z: 27.8}
-  m_LocalScale: {x: 4.512, y: 1, z: 4.629725}
+  m_LocalPosition: {x: -2.77, y: 42, z: 69.8}
+  m_LocalScale: {x: 11.845982, y: 1.6301, z: 7.5469146}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -90.97099, y: 0, z: 0}
---- !u!114 &764916142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 764916137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dbd4df18294d4eda8068c1c9409fcba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnAreaPlanes: []
-  enemyObject: {fileID: 0}
-  startMinute: 0
-  stopMinute: 0
-  secondsBetweenSpawns: 5
-  enemySpeed: 0
-  enemyHealth: 0
 --- !u!1 &837838308
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,8 +729,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1290269726}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 15.1, z: -24.8}
-  m_LocalScale: {x: 5, y: 5, z: 3.2976499}
+  m_LocalPosition: {x: 0, y: 48.7, z: -24.8}
+  m_LocalScale: {x: 15.086499, y: 15.086499, z: 9.949999}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -878,6 +918,11 @@ Prefab:
       propertyPath: m_Name
       value: Nice Pepe Root
       objectReference: {fileID: 0}
+    - target: {fileID: 64497177907771352, guid: 255f7d66bd59d4edeac0400e18fc6ac4,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 255f7d66bd59d4edeac0400e18fc6ac4, type: 2}
@@ -957,7 +1002,8 @@ Transform:
   m_LocalRotation: {x: 0.00000010214251, y: 0.5716832, z: 0.00000006136341, w: -0.82047445}
   m_LocalPosition: {x: 0.9, y: 1.744, z: -20.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 39049091}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 290.265, z: 0}

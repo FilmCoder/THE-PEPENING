@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class NicePepeController : MonoBehaviour {
 
@@ -13,15 +11,15 @@ public class NicePepeController : MonoBehaviour {
         HelperFunctions.PlaneLookAt(transform, player.transform);
 	}
 
-    void Update()
-    {
+    void Update() {
         float distRemaining = Vector3.Distance(transform.position, player.transform.position);
-        // have pepe seek the player, but don't get any closer than 3 units
+
+        // have pepe seek the player, but don't get any closer than 2 units
         if (distRemaining > 2) {
-            //Debug.Log("distance: " + distRemaining);
             float steps = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position,
-                                                          player.transform.position, steps);
+                                                     player.transform.position,
+                                                     steps);
         }
 	}
 }

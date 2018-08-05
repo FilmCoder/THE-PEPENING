@@ -69,7 +69,6 @@ public class SpawnTester : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (ShouldSpawnEnemy()) {
-            Debug.Log("spawning enemy");
             SpawnEnemy();
         }
     }
@@ -80,10 +79,12 @@ public class SpawnTester : MonoBehaviour {
 
     private void SpawnEnemy() {
         prevSpawnTime = Time.time; // spawn happens now
+
+        // create new enemy at spawn point
         Vector3 spawnPoint = GetSpawnPoint(spawnBoundsList);
         Instantiate(enemyObject, spawnPoint, Quaternion.identity);
+
         pepeCount++;
-        Debug.Log("count: " + pepeCount);
     }
 
     /*
