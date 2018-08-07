@@ -1,18 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraScript : MonoBehaviour {
 
     public float speedV = 2.0f;
     public float speedH = 2.0f;
 
-    private float yaw = 0;
-    private float pitch = 0;
+    float yaw = 0;
+    float pitch = 0;
 
-	private void Start()
+	void Start()
 	{
-        Cursor.lockState = UnityEngine.CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
 	}
 
 	void Update () {

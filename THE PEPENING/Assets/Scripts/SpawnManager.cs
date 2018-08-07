@@ -1,12 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Reflection;
 
-/*
- * The Spawner class is used to manage the spawning of enemies.
+/**
+ * Stores parameters for a SpawnManager object. 
+ * 
+ * Can be useful to store the parameters for multiple SpawnManager objects
+ * for future instationation, like for example storing spawning information
+ * for multiple levels/waves.
  */
-public class SpawnManager : MonoBehaviour {
-
+public class SpawnParams : MonoBehaviour {
+    
     /******    PUBLIC     ****/
 
     [Tooltip("Enemies will spawn anywhere within these planes.")]
@@ -26,26 +29,48 @@ public class SpawnManager : MonoBehaviour {
 
     public float enemySpeed;
     public int enemyHealth;
-    private int pepeCount = 0;
 
 
-    /******  PRIVATE  *********/
+    public SpawnParams(GameObject[] spawnPlanes=null, GameObject enemyObject=null, float startMinute = 0,
+                       float stopMinute = 1, float secondsBetweenSpawns = 5) {
+        this.spawnAreaPlanes = spawnPlanes;
+        this.enemyObject = enemyObject;
+        this.startMinute = startMinute;
+        this.stopMinute = stopMinute;
+        this.secondsBetweenSpawns = secondsBetweenSpawns;
+    }
+}
+
+/*
+ * The Spawner class is used to manage the spawning of enemies.
+ * 
+ * Note on inheritence from SpawnParams: We separated the public variables
+ * for SpawnParams into a separate class SpawnParams in order to store 
+ * parameters for SpawnManager before instantiation. By making SpawnManager
+ * a child of the parameter class, all those public variables will be present
+ * as properties in SpawnManager, and therefore show up in the Unity IDE.
+ */
+public class SpawnManager : SpawnParams {
 
     // Holds info on bounding boxs of spawnAreaPlanes, in World Coordinates.
-    private Bounds[] spawnBoundsList;
+    Bounds[] spawnBoundsList;
 
-    private float startSecond;
-    private float stopSecond;
+    float startSecond;
+    float stopSecond;
 
     // previous time an enemy was spawn
-    private float prevSpawnTime = 0f;
+    float prevSpawnTime = 0f;
 
-	// Use this for initialization
-	void Start () {
-        init();
-	}
 
-    void init() {
+    /**************** PUBLIC METHODS ****************/
+
+    /*
+     * Initialize this SpawnManager.
+     * 
+     * If manually initializing a SpawnManager from a script, after setting
+     * all parameters init() should be called.
+     */
+    public void Init() {
         // fill out the bounds list for quick access to bounds info of each area plane.
         spawnBoundsList = new Bounds[spawnAreaPlanes.Length];
         for (int i = 0; i < spawnBoundsList.Length; i++) {
@@ -57,6 +82,36 @@ public class SpawnManager : MonoBehaviour {
         stopSecond = stopMinute / 60f;
     }
 
+
+    /*
+     * Call InitWithParams to initialize spawn manager by passing in a 
+     * parameter object with parameters predetermined.
+     */
+    public void InitWithParams(SpawnParams spawnParams) {
+
+        // cycles through all properties in spawnParams and copies them 
+        // to those same property fields in SpawnManager.
+        foreach(PropertyInfo prop in GetType().GetProperties()) {
+            object value = prop.GetValue(spawnParams, null);
+            SetPropValue(this, prop.Name, value);
+        }
+
+        Init();
+    }
+
+    void SetPropValue(object obj, string propName, object value) {
+        obj.GetType().GetProperty(propName).SetValue(this, value, null);
+    }
+
+
+    /**************** PRIVATE METHODS *****************/
+
+    // Use this for initialization
+    void Start()
+    {
+        Init();
+    }
+
     // Update is called once per frame
     void Update() {
         if (ShouldSpawnEnemy()) {
@@ -64,29 +119,31 @@ public class SpawnManager : MonoBehaviour {
         }
     }
 
-    private bool ShouldSpawnEnemy() {
+    bool ShouldSpawnEnemy() {
         return Time.time - prevSpawnTime >= secondsBetweenSpawns;
     }
 
-    private void SpawnEnemy() {
+    void SpawnEnemy() {
         prevSpawnTime = Time.time; // spawn happens now
 
         // create new enemy at spawn point
         Vector3 spawnPoint = GetSpawnPoint(spawnBoundsList);
         Instantiate(enemyObject, spawnPoint, Quaternion.identity);
-
-        pepeCount++;
     }
 
     /*
      * Gets a random appropriate spawn point for an enemy, based on the 
      * areas specified by the spawnAreaPlanes
      */
-    private static Vector3 GetSpawnPoint(Bounds[] boundsList)
+    static Vector3 GetSpawnPoint(Bounds[] boundsList)
     {
         System.Random rand = new System.Random();
         int i = rand.Next(boundsList.Length);
         return SpatialUtil.getPointInBounds(boundsList[i]);
+    }
+
+    public void PrintSwag() {
+        Debug.Log("SpawnManager SWAG");
     }
 }
 
