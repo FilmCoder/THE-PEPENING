@@ -19,9 +19,11 @@ public class SpawnParams : MonoBehaviour {
     public GameObject enemyObject;
 
     [Tooltip("Minute to start spawning enemies. (can be fraction values like 1.5)")]
+    // this is relative to the creation time of the Spawner
     public float startMinute = 0;
 
     [Tooltip("Minute to stop spawning enemies. (can be fraction values like 2.5)")]
+    // this is relative to the creation time of the Spawner
     public float stopMinute = 1;
 
     [Tooltip("An enemy will be created after this many seconds repeatedly.")]
@@ -29,7 +31,6 @@ public class SpawnParams : MonoBehaviour {
 
     public float enemySpeed;
     public int enemyHealth;
-
 
     public SpawnParams(GameObject[] spawnPlanes=null, GameObject enemyObject=null, float startMinute = 0,
                        float stopMinute = 1, float secondsBetweenSpawns = 5) {
@@ -58,11 +59,31 @@ public class SpawnManager : SpawnParams {
     float startSecond;
     float stopSecond;
 
+    // time this SpawnManager was created
+    float creationTime;
+
     // previous time an enemy was spawn
     float prevSpawnTime = 0f;
 
 
-    /**************** PUBLIC METHODS ****************/
+    /**************** METHODS ****************/
+
+    void Start() {
+        Init();
+    }
+
+    // Update is called once per frame
+    void Update() {
+        if (ShouldSpawnEnemy()) {
+            //Debug.Log("SPAWNING ENEMY!");
+            SpawnEnemy();
+        }
+
+        if(Time.time > stopSecond) {
+            //Debug.Log("DESTROYING SPAWNMANAGER!");
+            Destroy(this);
+        }
+    }
 
     /*
      * Initialize this SpawnManager.
@@ -78,10 +99,11 @@ public class SpawnManager : SpawnParams {
         }
 
         // convert user friendly minute values to second values for internal consistency
-        startSecond = startMinute / 60f;
-        stopSecond = stopMinute / 60f;
-    }
+        startSecond = (startMinute * 60f) + creationTime;
+        stopSecond = (stopMinute * 60f) + creationTime;
 
+        creationTime = Time.time;
+    }
 
     /*
      * Call InitWithParams to initialize spawn manager by passing in a 
@@ -91,36 +113,23 @@ public class SpawnManager : SpawnParams {
 
         // cycles through all properties in spawnParams and copies them 
         // to those same property fields in SpawnManager.
-        foreach(PropertyInfo prop in GetType().GetProperties()) {
-            object value = prop.GetValue(spawnParams, null);
-            SetPropValue(this, prop.Name, value);
-        }
+        //foreach(PropertyInfo prop in spawnParams.GetType().GetProperties()) {
+        //    object value = prop.GetValue(spawnParams, null);
+        //    SetPropValue(this, prop.Name, value);
+        //}
+
+        spawnAreaPlanes = spawnParams.spawnAreaPlanes;
+        enemyObject = spawnParams.enemyObject;
+        startMinute = spawnParams.startMinute;
+        stopMinute = spawnParams.stopMinute;
+        secondsBetweenSpawns = spawnParams.secondsBetweenSpawns;
 
         Init();
-    }
-
-    void SetPropValue(object obj, string propName, object value) {
-        obj.GetType().GetProperty(propName).SetValue(this, value, null);
-    }
-
-
-    /**************** PRIVATE METHODS *****************/
-
-    // Use this for initialization
-    void Start()
-    {
-        Init();
-    }
-
-    // Update is called once per frame
-    void Update() {
-        if (ShouldSpawnEnemy()) {
-            SpawnEnemy();
-        }
     }
 
     bool ShouldSpawnEnemy() {
-        return Time.time - prevSpawnTime >= secondsBetweenSpawns;
+        return Time.time - prevSpawnTime >= secondsBetweenSpawns
+                   && Time.time > startSecond;
     }
 
     void SpawnEnemy() {
@@ -135,8 +144,7 @@ public class SpawnManager : SpawnParams {
      * Gets a random appropriate spawn point for an enemy, based on the 
      * areas specified by the spawnAreaPlanes
      */
-    static Vector3 GetSpawnPoint(Bounds[] boundsList)
-    {
+    static Vector3 GetSpawnPoint(Bounds[] boundsList) {
         System.Random rand = new System.Random();
         int i = rand.Next(boundsList.Length);
         return SpatialUtil.getPointInBounds(boundsList[i]);
@@ -144,6 +152,10 @@ public class SpawnManager : SpawnParams {
 
     public void PrintSwag() {
         Debug.Log("SpawnManager SWAG");
+    }
+
+    void SetPropValue(object obj, string propName, object value) {
+        obj.GetType().GetProperty(propName).SetValue(this, value, null);
     }
 }
 
