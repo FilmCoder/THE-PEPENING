@@ -43,9 +43,9 @@ Play the Game!
 --------------
 WEBGL Build: https://filmcoder.github.io/THE_PEPENING/Build_2/index.html
 
-Click in the game window to attach the cursor. Escape to exit.
+WARNING: WEBGL Build is weeks out of date, needs rebuild and update!
 
-Release builds for Windows and Mac will be released later.
+Click in the game window to attach the cursor. Escape to exit.
 
 Note: The release here probably isn't up to date, to get the latest and greatest
 follow the contribute instructions below.
